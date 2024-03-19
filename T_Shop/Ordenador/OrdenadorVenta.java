@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ordenador;
 
-/**
- *
- * @author pilar
- */
 //Clase para ordenadores de solo venta
-public class OrdenadorVenta implements Ordenador, Strategy{
+public class OrdenadorVenta implements Ordenador, Strategy {
 
     private String nombre;
     private int cantidad = 0;
@@ -21,6 +12,7 @@ public class OrdenadorVenta implements Ordenador, Strategy{
         this.cantidad = cantidad;
         this.precio = precio;
     }
+
     @Override
     public String getNombre() {
         return nombre;
@@ -28,34 +20,34 @@ public class OrdenadorVenta implements Ordenador, Strategy{
 
     @Override
     public void setNombre(String Nombre) {
-        this.nombre=nombre;
+        this.nombre = Nombre;
     }
 
     @Override
     public int getCantidad() {
         return cantidad;
     }
-    
+
     @Override
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
-    
     public void aumentarCantidad() {
         cantidad++;
     }
 
-    
     public void reducirCantidad(int cantidad) {
-       this.cantidad = this.cantidad - cantidad;
-    } 
-    //Este metodo devuelve un clon con la cantidad que representa los ordenadores que quiere el cliente
+        this.cantidad = this.cantidad - cantidad;
+    }
+
+    // Este metodo devuelve un clon con la cantidad que representa los ordenadores
+    // que quiere el cliente
     @Override
     public Strategy solicitar(int cantidad) {
-        if(cantidad > this.cantidad){
+        if (cantidad > this.cantidad) {
             return null;
-        }else{
+        } else {
             Strategy o = clone(cantidad);
             reducirCantidad(cantidad);
             return o;
@@ -66,12 +58,13 @@ public class OrdenadorVenta implements Ordenador, Strategy{
     public String getStrategy() {
         return "Venta";
     }
-    
-    public String toString(){
+
+    public String toString() {
         return nombre + " \nCantidad en almacen: " + cantidad;
     }
-    //Metodo que devuelve un clon y establece el patron prototype
-    private Strategy clone(int cantidad){
+
+    // Metodo que devuelve un clon y establece el patron prototype
+    private Strategy clone(int cantidad) {
         Strategy o = new OrdenadorVenta(this.nombre, cantidad, this.precio);
         return o;
     }
@@ -80,5 +73,5 @@ public class OrdenadorVenta implements Ordenador, Strategy{
     public float getPrecio() {
         return precio;
     }
-    
+
 }

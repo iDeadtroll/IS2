@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Factory;
 
-/**
- *
- * @author pilar
- */
 //Clase para cascos con cable
-public class CascosCable implements Cascos{
+public class CascosCable implements Cascos {
     private String color;
     private float precio;
 
@@ -18,7 +9,7 @@ public class CascosCable implements Cascos{
         this.color = color;
         this.precio = precio;
     }
-    
+
     @Override
     public void setColor(String color) {
         this.color = color;
@@ -28,9 +19,9 @@ public class CascosCable implements Cascos{
     public String getColor() {
         return color;
     }
-    
+
     @Override
-    public float getPrecio(){
+    public float getPrecio() {
         return precio;
     }
 
@@ -39,13 +30,13 @@ public class CascosCable implements Cascos{
         return "Cascos con conexion por cable" + "\nColor: " + color + "\nPrecio:" + precio;
     }
 
-
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
-        }//Si son del mismo tipo de perifericos y conexion y tienen el mismo color de devuelve true
-        if (getClass() == obj.getClass() && color.equals(((Raton)obj).getColor())) {
+        } // Si son del mismo tipo de perifericos y conexion y tienen el mismo color de
+          // devuelve true
+        if (getClass() == obj.getClass() && color.equals(((Raton) obj).getColor())) {
             return true;
         }
         return false;

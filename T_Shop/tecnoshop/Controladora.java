@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package tecnoshop;
 
-/**
- *
- * @author pilar
- */
 import Almacen.Almacen;
 import Almacen.AlmacenImp;
 import Ordenador.Ordenador;
@@ -15,10 +7,6 @@ import Ordenador.OrdenadorReserva;
 import Ordenador.Strategy;
 import java.util.Iterator;
 
-/**
- *
- * @author mrket
- */
 public class Controladora {
 
     // comprar, reservar, encargar periferico
@@ -64,7 +52,7 @@ public class Controladora {
         return encargo;
     }
 
-    Iterator mostrarStock() {
+    Iterator<Strategy> mostrarStock() {
         return almacen.Stock();
     }
 }

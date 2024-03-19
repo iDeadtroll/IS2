@@ -29,11 +29,11 @@ public class AlmacenImp implements Almacen {
     private static Almacen instance;
     private PerifericosFactory factoryCable = new PerifericosCable();
     private PerifericosFactory factoryInalambrico = new PerifericosInalambrico();
-    private List encargos;
+    private List<Strategy> encargos;
 
     private AlmacenImp() {
-        stock = new ArrayList();
-        encargos = new ArrayList();
+        stock = new ArrayList<>();
+        encargos = new ArrayList<>();
         Strategy o = new OrdenadorVenta("Laptop1", 3, 1000);
         Strategy o2 = new OrdenadorVenta("Laptop2", 4, 1200);
         Strategy o3 = new OrdenadorReserva("Laptop3", 2, 1300);
@@ -85,7 +85,7 @@ public class AlmacenImp implements Almacen {
 
     // Metodo para mostrar stock
     @Override
-    public Iterator Stock() {
+    public Iterator<Strategy> Stock() {
         return stock.iterator();
     }
 
@@ -101,14 +101,14 @@ public class AlmacenImp implements Almacen {
                     // Si el tipo es 1, el periferico sera con cable
                     case 1:
                         Raton rc = factoryCable.createRaton(color, 42);
-                        encargos.add(rc);
+                        encargos.add((Strategy) rc);
                         precio = rc.getPrecio();
 
                         break;
                     // Si es 2 sera inalambrico
                     case 2:
                         Raton rcI = factoryInalambrico.createRaton(color, 45);
-                        encargos.add(rcI);
+                        encargos.add((Strategy) rcI);
                         precio = rcI.getPrecio();
                         break;
                     // Si es 0 el cliente quiere salir
@@ -121,12 +121,12 @@ public class AlmacenImp implements Almacen {
                 switch (tipo) {
                     case 1:
                         Cascos cascos = factoryCable.createCasco(color, 100);
-                        encargos.add(cascos);
+                        encargos.add((Strategy) cascos);
                         precio = cascos.getPrecio();
                         break;
                     case 2:
                         Cascos cascosI = factoryInalambrico.createCasco(color, 115);
-                        encargos.add(cascosI);
+                        encargos.add((Strategy) cascosI);
                         precio = cascosI.getPrecio();
                         break;
                     case 0:

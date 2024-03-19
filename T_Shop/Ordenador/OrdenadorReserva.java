@@ -1,29 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ordenador;
 
-/**
- *
- * @author mrket
- */
-//Clase para ordenadores de solo reserva
-public class OrdenadorReserva implements Ordenador, Strategy{
-    
+// Clase para ordenadores de solo reserva
+public class OrdenadorReserva implements Ordenador, Strategy {
+
     private String nombre;
     private int cantidad = 0;
     private int precio;
     private int dias;
 
-    
     public OrdenadorReserva(String nombre, int cantidad, int precio) {
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
     }
-    
+
     @Override
     public String getNombre() {
         return nombre;
@@ -31,40 +21,41 @@ public class OrdenadorReserva implements Ordenador, Strategy{
 
     @Override
     public void setNombre(String Nombre) {
-        this.nombre=nombre;
+        this.nombre = Nombre;
     }
 
     @Override
     public int getCantidad() {
         return cantidad;
     }
-    
+
     @Override
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
     public void reducirCantidad(int cantidad) {
-       this.cantidad = this.cantidad - cantidad;
+        this.cantidad = this.cantidad - cantidad;
     }
-    
+
     @Override
-    public float getPrecio(){
+    public float getPrecio() {
         return precio;
     }
 
-    public void setDias(int dias){
+    public void setDias(int dias) {
         this.dias = dias;
     }
-    
-    public int getDias(){
+
+    public int getDias() {
         return dias;
     }
-    
+
     @Override
     public Strategy solicitar(int dias) {
-            Strategy o = clone(dias);
-            reducirCantidad(1);
-            return o;
+        Strategy o = clone(dias);
+        reducirCantidad(1);
+        return o;
     }
 
     @Override
@@ -72,13 +63,14 @@ public class OrdenadorReserva implements Ordenador, Strategy{
         return "Reserva";
     }
 
-    public String toString(){
+    public String toString() {
         return nombre + " \nOrdenador Reserva\nCantidad: " + cantidad + "\nPrecio:" + precio;
     }
-    //Metodo que devuelve un clon y establece el patron prototype
-    private Strategy clone(int dias){
-            Strategy o = new OrdenadorReserva(this.nombre, 1, this.precio);
-            ((OrdenadorReserva)o).setDias(dias);
-            return o;
-        }
+
+    // Metodo que devuelve un clon y establece el patron prototype
+    private Strategy clone(int dias) {
+        Strategy o = new OrdenadorReserva(this.nombre, 1, this.precio);
+        ((OrdenadorReserva) o).setDias(dias);
+        return o;
+    }
 }
