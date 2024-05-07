@@ -1,4 +1,4 @@
-# Tema 6:
+# Tema 6: Introducción a la Arquitectura Software
 ## ¿Que es el Diseño Arquitectónico?
  Los grandes sistemas se descomponen en subsistemas que proporcionan algún conjunto de servicios relacionados. El proceso de diseño inicial que identifica estos subsistemas y establece un marco para el control y comunicacion de los subsistemas se llama diseño arquitectonico.
 
@@ -37,6 +37,9 @@ La organización de un sistema refleja las estrategias básica usada para estruc
 |  Forma eficiente de compartir grandes cantidades de datos  | Los subsistemas deben estar acordes con el modelo de datos del repositorio ( rendimiento y problemas incorporar nuevos subsistemas)|
 | Los subsistemas que producen datos no necesitan conocer cómo se utilizan sus datos por otros subsistemas  | La evolucion es dificil a medida que se genera un gran volumen de informacion (traduccion a un nuevo modelo)|
 
+![Descripción de la imagen](https://github.com/iDeadtroll/IS2/blob/main/EBs/Tema6/clipboard-image-1715055847.png?raw=true
+)
+
 
 - Modelo Cliente-Servidor
     - El sistema se organiza como un conjunto de servicios y servidores asociados, más unos clientes que acceden y usan los servicios.
@@ -45,6 +48,8 @@ La organización de un sistema refleja las estrategias básica usada para estruc
         - Un conjuntoi de clientes que llaman a los servicios ofrecidos por los servidores.
         - Una red que permite a los clientes acceder a estos servicios.
 
+<image src="/workspaces/IS2/EBs/Tema6/clipboard-image-1715055997.png" alt="Descripción de la imagen">
+
 - Modelo de Capas (3 capas)
     - El sistema se organiza en capas, cada una de las cuales proporciona un conjunto de servicios.
         | Capa | Descripcion |
@@ -52,6 +57,9 @@ La organización de un sistema refleja las estrategias básica usada para estruc
         | Presentacion | Presentar informacion e interactuar con las capas inferiores externas |
         | Lógica de la Aplicación | Implementa la lógica de negocio solicitada por los clientes |
         | Acceso a Datos | Gestiona todos los elementos de informacion |
+
+<image src="/workspaces/IS2/EBs/Tema6/clipboard-image-1715056079.png" alt="Descripción de la imagen">
+
 
 - Modelo de Capas (Capa de Persistencia)
     - Implementar las operaciones CRUD:
@@ -66,4 +74,16 @@ La organización de un sistema refleja las estrategias básica usada para estruc
         - Utilizar sentencias preparadas y pasar los valores por parámetros.
         - Llamar a procedimientos almacenados, que residen en el gestor de base de datos.
 
-## 
+## Estilos de descomposición Modular
+### Subsistema vs Módulo
+| Subsistema | Módulo |
+| :-------- | :-----|
+| Un subsistema es un sistema en si mismos, cuyo funcionamiento no depende de los servicios proporcionador por otros subsistemas. Los subsistemas se decomponen en módulos | Un módulo es normalmente un componente de un subsistema que proporciona uno o más servicios a otros módulos. A su vez éste usa servicios proporcionados por otros módulos |
+
+### Estrategias principales
+- Descomposición orientada a objetos:
+    - Se descomponen en un conjunto de objetos que se comunican.
+    - Diagramas de Clases UML.
+
+- Descomposición orientada a flujos de funciones:
+    - Se descompone en módulos funcionales que aceptan datos y los transforma en datos de salida.
