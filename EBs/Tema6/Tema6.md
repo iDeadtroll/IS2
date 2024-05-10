@@ -48,7 +48,7 @@ La organización de un sistema refleja las estrategias básica usada para estruc
         - Un conjuntoi de clientes que llaman a los servicios ofrecidos por los servidores.
         - Una red que permite a los clientes acceder a estos servicios.
 
-<image src="/workspaces/IS2/EBs/Tema6/clipboard-image-1715055997.png" alt="Descripción de la imagen">
+<image src="https://github.com/iDeadtroll/IS2/blob/main/EBs/Tema6/clipboard-image-1715055997.png?raw=true" alt="Descripción de la imagen">
 
 - Modelo de Capas (3 capas)
     - El sistema se organiza en capas, cada una de las cuales proporciona un conjunto de servicios.
@@ -58,7 +58,7 @@ La organización de un sistema refleja las estrategias básica usada para estruc
         | Lógica de la Aplicación | Implementa la lógica de negocio solicitada por los clientes |
         | Acceso a Datos | Gestiona todos los elementos de informacion |
 
-<image src="/workspaces/IS2/EBs/Tema6/clipboard-image-1715056079.png" alt="Descripción de la imagen">
+<image src="https://github.com/iDeadtroll/IS2/blob/main/EBs/Tema6/clipboard-image-1715056079.png?raw=true" alt="Descripción de la imagen">
 
 
 - Modelo de Capas (Capa de Persistencia)
